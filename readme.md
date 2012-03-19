@@ -18,8 +18,8 @@ To use a custom style, name the CSS file `.mdqlstyle.css` and place it in your U
 
 A couple of default styles lifted from [Marked.app][marked].
 
-* [Swiss](https://raw.github.com/ttscoff/MMD-QuickLook/master/mdqlstyle.swiss.css) [screenshot][swissshot]
-* [Upstanding Citizen](https://raw.github.com/ttscoff/MMD-QuickLook/master/mdqlstyle.upstandingcitizen.css) [screenshot][upshot] (includes custom fonts embedded in the CSS as data URIs)
+* [Swiss](https://raw.github.com/ttscoff/MMD-QuickLook/master/mdqlstyle.swiss.css) ([screenshot][swissshot])
+* [Upstanding Citizen](https://raw.github.com/ttscoff/MMD-QuickLook/master/mdqlstyle.upstandingcitizen.css) ([screenshot][upshot]) (includes custom fonts embedded in the CSS as data URIs)
 
 ![Upstanding Citizen][upcropped]
 
