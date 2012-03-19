@@ -3,8 +3,11 @@
 <https://github.com/ttscoff/MMD-QuickLook>
 
 [mmdql]: https://github.com/fletcher/MMD-QuickLook
+[screenshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLGithub-1.jpg
 
 This is a quick fork of Fletcher Penney's [MMD Quicklook project][mmdql]. It adds some styling to the default Quick Look preview (based on GitHub CSS) and allows for customization via a `.mdqlstyle.css` file in your home folder.
+
+![MultiMarkdown Quicklook with Style][screenshot]
 
 To install, place the `MultiMarkdown QuickLook.qlgenerator` file in `~/Library/QuickLook/`. To make sure the Quick Look generator list reloads with the new file, you can run `qlmanage -r` on the command line.
 
