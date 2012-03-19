@@ -4,10 +4,10 @@
 #import <Cocoa/Cocoa.h>
 
 /* -----------------------------------------------------------------------------
-   Generate a preview for file
-
-   This function's job is to create preview for designated file
-   ----------------------------------------------------------------------------- */
+ Generate a preview for file
+ 
+ This function's job is to create preview for designated file
+ ----------------------------------------------------------------------------- */
 
 NSData* processMMD(NSURL* url);
 NSData* processOPML2MMD(NSURL* url);
@@ -51,71 +51,71 @@ NSData* processOPML2MMD(NSURL* url)
     
     NSString *path2MMD = [[NSBundle bundleWithIdentifier:@"net.fletcherpenney.quicklook"] pathForResource:@"multimarkdown" ofType:nil];
     
-	NSTask* task = [[NSTask alloc] init];
-	[task setLaunchPath: [path2MMD stringByExpandingTildeInPath]];
-	
+		NSTask* task = [[NSTask alloc] init];
+		[task setLaunchPath: [path2MMD stringByExpandingTildeInPath]];
+		
     [task setArguments: [NSArray arrayWithObjects: nil]];
-	
-	NSPipe *writePipe = [NSPipe pipe];
-	NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
-	[task setStandardInput: writePipe];
-	
-	NSPipe *readPipe = [NSPipe pipe];
-	[task setStandardOutput:readPipe];
-	
-	[task launch];
-
+		
+		NSPipe *writePipe = [NSPipe pipe];
+		NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
+		[task setStandardInput: writePipe];
+		
+		NSPipe *readPipe = [NSPipe pipe];
+		[task setStandardOutput:readPipe];
+		
+		[task launch];
+		
     
     NSString *theData = [NSString stringWithContentsOfFile:[url path] encoding:NSUTF8StringEncoding error:nil];
     
     NSXMLDocument *opmlDocument = [[NSXMLDocument alloc] initWithXMLString:theData
-                                                              options:0
-                                                                error:nil];
+																																	 options:0
+																																		 error:nil];
     NSURL *styleFilePath = [[NSBundle bundleWithIdentifier:@"net.fletcherpenney.quicklook"] URLForResource:@"opml2mmd"
                                                                                              withExtension:@"xslt"];
     
     NSData *mmdContents = [opmlDocument objectByApplyingXSLTAtURL:styleFilePath
-                                                   arguments:nil 
-                                                       error:nil];
+																												arguments:nil 
+																														error:nil];
     
     [opmlDocument release];
     
-	[writeHandle writeData:mmdContents];
+		[writeHandle writeData:mmdContents];
     
-	[writeHandle closeFile];
-	
-	
-	NSData *mmdData = [[readPipe fileHandleForReading] readDataToEndOfFile];
+		[writeHandle closeFile];
+		
+		
+		NSData *mmdData = [[readPipe fileHandleForReading] readDataToEndOfFile];
     
     [task release];
-	return mmdData;
+		return mmdData;
 }
 
 NSData* processMMD(NSURL* url)
 {
     if (logDebug)
         NSLog(@"create preview for MMD file %@",[url path]);
-
+		
     NSString *path2MMD = [[NSBundle bundleWithIdentifier:@"net.fletcherpenney.quicklook"] pathForResource:@"multimarkdown" ofType:nil];
     
-	NSTask* task = [[NSTask alloc] init];
-	[task setLaunchPath: [path2MMD stringByExpandingTildeInPath]];
-	
+		NSTask* task = [[NSTask alloc] init];
+		[task setLaunchPath: [path2MMD stringByExpandingTildeInPath]];
+		
     [task setArguments: [NSArray arrayWithObjects: nil]];
-	
-	NSPipe *writePipe = [NSPipe pipe];
-	NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
-	[task setStandardInput: writePipe];
-	
-	NSPipe *readPipe = [NSPipe pipe];
-	[task setStandardOutput:readPipe];
-	
-	[task launch];
+		
+		NSPipe *writePipe = [NSPipe pipe];
+		NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
+		[task setStandardInput: writePipe];
+		
+		NSPipe *readPipe = [NSPipe pipe];
+		[task setStandardOutput:readPipe];
+		
+		[task launch];
     
     NSStringEncoding encoding = 0;
-        
+		
     // Ensure we used proper encoding - try different options until we get a hit
-  //  if (plainText == nil)
+		//  if (plainText == nil)
     //    plainText = [NSString stringWithContentsOfFile:[url path] usedEncoding:<#(NSStringEncoding *)#> error:<#(NSError **)#> encoding:NSASCIIStringEncoding];
     
 		
@@ -129,15 +129,15 @@ NSData* processMMD(NSURL* url)
     if (logDebug)
         NSLog(@"Used %lu encoding",(unsigned long) encoding);
     
-	[writeHandle writeData:[theData dataUsingEncoding:NSUTF8StringEncoding]];
+		[writeHandle writeData:[theData dataUsingEncoding:NSUTF8StringEncoding]];
     
-	[writeHandle closeFile];
-	
-	
-	NSData *mmdData = [[readPipe fileHandleForReading] readDataToEndOfFile];
+		[writeHandle closeFile];
+		
+		
+		NSData *mmdData = [[readPipe fileHandleForReading] readDataToEndOfFile];
 		
     [task release];
-	return mmdData;
+		return mmdData;
 }
 
 void CancelPreviewGeneration(void* thisInterface, QLPreviewRequestRef preview)
