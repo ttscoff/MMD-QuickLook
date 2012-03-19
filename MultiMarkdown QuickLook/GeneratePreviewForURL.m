@@ -118,9 +118,13 @@ NSData* processMMD(NSURL* url)
   //  if (plainText == nil)
     //    plainText = [NSString stringWithContentsOfFile:[url path] usedEncoding:<#(NSStringEncoding *)#> error:<#(NSError **)#> encoding:NSASCIIStringEncoding];
     
-
-    
+		
     NSString *theData = [NSString stringWithContentsOfFile:[url path] usedEncoding:&encoding error:nil];
+		NSString *cssDir = @"~/.mdqlstyle.css";
+		if ([[NSFileManager defaultManager] fileExistsAtPath:[cssDir stringByExpandingTildeInPath]]) {
+				NSString *cssStyle = [NSString stringWithFormat:@"\n<style>%@</style>",[NSString stringWithContentsOfFile:[cssDir stringByExpandingTildeInPath] encoding:NSUTF8StringEncoding error:nil]];
+				theData = [theData stringByAppendingString:cssStyle];
+		}
     
     if (logDebug)
         NSLog(@"Used %lu encoding",(unsigned long) encoding);
