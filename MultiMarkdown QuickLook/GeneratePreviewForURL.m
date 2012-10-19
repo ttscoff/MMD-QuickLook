@@ -37,7 +37,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
         if (logDebug)
             NSLog(@"preview generated");
         
-        CFDictionaryRef properties = (CFDictionaryRef) [NSDictionary dictionary];
+        CFDictionaryRef properties = (CFDictionaryRef) [NSDictionary dictionaryWithObject:@"UTF-8" forKey:(NSString *)kQLPreviewPropertyTextEncodingNameKey];
         QLPreviewRequestSetDataRepresentation(preview, previewData, kUTTypeHTML, properties);
     }
     
