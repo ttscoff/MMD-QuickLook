@@ -2,10 +2,6 @@
 
 <https://github.com/ttscoff/MMD-QuickLook>
 
-[mmdql]: https://github.com/fletcher/MMD-QuickLook
-[screenshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLGithub-1.jpg
-[dl]: https://github.com/downloads/ttscoff/MMD-QuickLook/MultiMarkdown%20QuickLook.qlgenerator.zip
-
 This is a quick fork of Fletcher Penney's [MMD Quicklook project][mmdql]. It adds some styling to the default Quick Look preview (based on GitHub CSS) and allows for customization via a `.mdqlstyle.css` file in your home folder.
 
 ![MultiMarkdown Quicklook with Style][screenshot]
@@ -23,6 +19,9 @@ A couple of default styles lifted from [Marked.app][marked].
 
 ![Upstanding Citizen][upcropped]
 
+[mmdql]: https://github.com/fletcher/MMD-QuickLook
+[screenshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLGithub-1.jpg
+[dl]: http://assets.brettterpstra.com/MultiMarkdown%20QuickLook.qlgenerator.zip
 [swissshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLSwiss.jpg
 [upshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLUpstanding.jpg
 [upcropped]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLUpstandingCropped.jpg
