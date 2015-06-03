@@ -30,7 +30,7 @@ A couple of default styles lifted from [Marked.app][marked].
 
 [mmdql]: https://github.com/fletcher/MMD-QuickLook
 [screenshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLGithub-1.jpg
-[dl]: http://assets.brettterpstra.com/MultiMarkdown%20QuickLook.qlgenerator.zip
+[dl]: https://github.com/ttscoff/MMD-QuickLook/releases/latest
 [swissshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLSwiss.jpg
 [upshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLUpstanding.jpg
 [upcropped]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLUpstandingCropped.jpg
