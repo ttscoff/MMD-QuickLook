@@ -13,6 +13,21 @@
 			<array/>
 		</dict>
 		<dict>
+			<key>CFBundleTypeName</key>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>QLGenerator</string>
+				<key>LSItemContentTypes</key>
+				<array>
+					<string>net.daringfireball.markdown</string>
+					<string>net.multimarkdown.text</string>
+					<string>org.vim.markdown-file</string>
+					<string>public.opml</string>
+					<string>net.multimarkdown.opml</string>
+					<string>org.opml.opml</string>
+					<string>org.textbundle.package</string>
+				</array>
+			</dict>
 			<key>CFBundleTypeRole</key>
 			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
@@ -23,6 +38,7 @@
 				<string>public.opml</string>
 				<string>net.multimarkdown.opml</string>
 				<string>org.opml.opml</string>
+				<string>org.textbundle.package</string>
 			</array>
 		</dict>
 	</array>
@@ -37,9 +53,9 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1</string>
+	<string>91</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFPlugInDynamicRegisterFunction</key>
 	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
@@ -65,7 +81,7 @@
 	<key>QLPreviewHeight</key>
 	<real>600</real>
 	<key>QLPreviewWidth</key>
-	<real>800</real>
+	<integer>900</integer>
 	<key>QLSupportsConcurrentRequests</key>
 	<false/>
 	<key>QLThumbnailMinimumSize</key>
@@ -85,6 +101,22 @@
 				<dict>
 					<key>item 0</key>
 					<string>opml</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.package</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>org.textbundle.package</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<dict>
+					<key>item 0</key>
+					<string>textbundle</string>
 				</dict>
 			</dict>
 		</dict>
