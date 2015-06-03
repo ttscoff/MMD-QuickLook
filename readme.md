@@ -19,6 +19,15 @@ A couple of default styles lifted from [Marked.app][marked].
 
 ![Upstanding Citizen][upcropped]
 
+### Changelog
+
+* **Version 1.2**
+    - TextBundle support
+* **Version 1.1**
+    - Updated MultiMarkdown
+    - Support for `{{TOC}}`
+    - Support for Metadata references, e.g. `[%title]`
+
 [mmdql]: https://github.com/fletcher/MMD-QuickLook
 [screenshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLGithub-1.jpg
 [dl]: http://assets.brettterpstra.com/MultiMarkdown%20QuickLook.qlgenerator.zip
