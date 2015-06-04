@@ -6,7 +6,15 @@ This is a quick fork of Fletcher Penney's [MMD Quicklook project][mmdql]. It add
 
 ![MultiMarkdown Quicklook with Style][screenshot]
 
-To install, [download the zip][dl], unarchive and place the `MultiMarkdown QuickLook.qlgenerator` file in `~/Library/QuickLook/`. To make sure the Quick Look generator list reloads with the new file, you can run `qlmanage -r` on the command line.
+#### Installation
+
+To install, either use [homebrew-cask][cask]
+
+```shell
+brew cask install ttscoff-mmd-quicklook
+```
+
+or manually [download the zip][dl], unarchive and place the `MultiMarkdown QuickLook.qlgenerator` file in `~/Library/QuickLook/`. To make sure the Quick Look generator list reloads with the new file, you can run `qlmanage -r` on the command line.
 
 To use a custom style, name the CSS file `.mdqlstyle.css` and place it in your User's home directory. Note the leading period. Default padding for the body class will be included before your styles, so you can pretty much drop in any CSS you want from any source. Use one of the provided files, copy CSS from your blog, your favorite website or build your own.
 
@@ -30,6 +38,7 @@ A couple of default styles lifted from [Marked.app][marked].
 
 [mmdql]: https://github.com/fletcher/MMD-QuickLook
 [screenshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLGithub-1.jpg
+[cask]: http://caskroom.io/
 [dl]: https://github.com/ttscoff/MMD-QuickLook/releases/latest
 [swissshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLSwiss.jpg
 [upshot]: https://github.com/ttscoff/MMD-QuickLook/raw/master/MMDQLUpstanding.jpg
