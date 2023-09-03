@@ -29,12 +29,22 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     }
     else if (CFStringCompare(contentTypeUTI, CFSTR("org.textbundle.package"), 0) == kCFCompareEqualTo)
     {
-        NSString *docPath = [[(NSURL *)url path]
-            stringByAppendingPathComponent:@"text.md"];
-        NSURL *newURL = [NSURL fileURLWithPath:docPath];
-        ;
-
-        previewData = (CFDataRef)processMMD((NSURL *)newURL);
+        NSArray *keys = @[NSURLNameKey];
+        NSDirectoryEnumerator *directoryEnumerator = [[NSFileManager defaultManager] enumeratorAtURL:(NSURL *)url
+            includingPropertiesForKeys:keys options:(NSDirectoryEnumerationSkipsSubdirectoryDescendants | NSDirectoryEnumerationSkipsHiddenFiles)
+            errorHandler:^(NSURL *url, NSError *error) {
+                                         // Handle the error.
+                                         // Return YES if the enumeration should continue after the error.
+                                         return NO;
+                                     }];
+        for (NSURL *newURL in directoryEnumerator) {
+            NSString * name;
+            [newURL getResourceValue:&name forKey:NSURLNameKey error:NULL];
+            if ([name hasPrefix:@"text"]){
+                previewData = (CFDataRef)processMMD((NSURL *)newURL);
+                break;
+            }
+        }
     }
     else
     {
