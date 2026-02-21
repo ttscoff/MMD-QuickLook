@@ -29,10 +29,8 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     }
     else if (CFStringCompare(contentTypeUTI, CFSTR("org.textbundle.package"), 0) == kCFCompareEqualTo)
     {
-        NSString *docPath = [[(NSURL *)url path]
-            stringByAppendingPathComponent:@"text.md"];
+        NSString *docPath = [[(NSURL *)url path] stringByAppendingPathComponent:@"text.md"];
         NSURL *newURL = [NSURL fileURLWithPath:docPath];
-        ;
 
         previewData = (CFDataRef)processMMD((NSURL *)newURL);
     }
@@ -78,15 +76,10 @@ NSData *processOPML2MMD(NSURL *url)
 
     NSString *theData = [NSString stringWithContentsOfFile:[url path] encoding:NSUTF8StringEncoding error:nil];
 
-    NSXMLDocument *opmlDocument = [[NSXMLDocument alloc] initWithXMLString:theData
-                                                                   options:0
-                                                                     error:nil];
-    NSURL *styleFilePath = [[NSBundle bundleWithIdentifier:@"net.fletcherpenney.quicklook"] URLForResource:@"opml2mmd"
-                                                                                             withExtension:@"xslt"];
+    NSXMLDocument *opmlDocument = [[NSXMLDocument alloc] initWithXMLString:theData options:0 error:nil];
+    NSURL *styleFilePath = [[NSBundle bundleWithIdentifier:@"net.fletcherpenney.quicklook"] URLForResource:@"opml2mmd" withExtension:@"xslt"];
 
-    NSData *mmdContents = [opmlDocument objectByApplyingXSLTAtURL:styleFilePath
-                                                        arguments:nil
-                                                            error:nil];
+    NSData *mmdContents = [opmlDocument objectByApplyingXSLTAtURL:styleFilePath arguments:nil error:nil];
 
     [opmlDocument release];
 
@@ -110,7 +103,7 @@ NSData *processMMD(NSURL *url)
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:[path2MMD stringByExpandingTildeInPath]];
 
-    [task setArguments:[NSArray array]];
+    [task setArguments:[NSArray arrayWithObjects:@"--embedimg", @"--directory", [[url path] stringByDeletingLastPathComponent], nil]];
 
     NSPipe *writePipe = [NSPipe pipe];
     NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
@@ -159,6 +152,28 @@ NSData *processMMD(NSURL *url)
     NSData *mmdData = [[readPipe fileHandleForReading] readDataToEndOfFile];
     
     [task release];
+
+	/* This isn't working:
+		// Let's turn relative paths to image into absolute paths so that they get shown properly.
+		// I'm making the assertion that all such image refs are in the form `<img src="` - and if they do not start with a "/",
+		// they're assumed relative, and I'm inserting the abs path.
+		NSString *path = url.path.stringByDeletingLastPathComponent;
+		// escape the string for use in quotes
+		path = [path stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+		path = [path stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+		if (![path hasSuffix:@"/"]) {
+			path = [path stringByAppendingString:@"/"];
+		}
+		NSString *replacement = [NSString stringWithFormat:@"<img src=\"%@$1", path];
+		NSString *text = [NSString.alloc initWithData:mmdData encoding:NSUTF8StringEncoding];
+		NSRegularExpression *re;
+		re = [NSRegularExpression regularExpressionWithPattern:@"<img src=\\\"([^/])" options:0 error:nil];
+		text = [re stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, [text length]) withTemplate:replacement];
+		mmdData = [text dataUsingEncoding:NSUTF8StringEncoding];
+	*/
+
+	//[mmdData writeToFile:@"/tmp/mmd-output.html" atomically:NO];
+	
     return mmdData;
 }
 
