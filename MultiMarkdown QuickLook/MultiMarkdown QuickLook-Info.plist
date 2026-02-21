@@ -53,9 +53,9 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleShortVersionString</key>
-	<string>91</string>
-	<key>CFBundleVersion</key>
 	<string>1.2</string>
+	<key>CFBundleVersion</key>
+	<string>91</string>
 	<key>CFPlugInDynamicRegisterFunction</key>
 	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
@@ -75,7 +75,7 @@
 	<key>CFPlugInUnloadFunction</key>
 	<string></string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2011 Fletcher T. Penney. All rights reserved.</string>
+	<string>Original 2011 by Fletcher T. Penney. Released under MIT license</string>
 	<key>QLNeedsToBeRunInMainThread</key>
 	<false/>
 	<key>QLPreviewHeight</key>
