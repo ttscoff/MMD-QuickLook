@@ -18,11 +18,6 @@
 		5A7859FC1443C54800C7C824 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7859FB1443C54800C7C824 /* Cocoa.framework */; };
 		5A7859FF1443C96D00C7C824 /* multimarkdown in Resources */ = {isa = PBXBuildFile; fileRef = 5A7859FE1443C96D00C7C824 /* multimarkdown */; };
 		5A785A0A1443CC1A00C7C824 /* opml2mmd.xslt in Resources */ = {isa = PBXBuildFile; fileRef = 5A785A091443CC1A00C7C824 /* opml2mmd.xslt */; };
-		9372691E1B1F77B400F1780F /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 9372691D1B1F77B400F1780F /* base64.c */; };
-		937269211B1F77DD00F1780F /* NSString_Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 9372691F1B1F77DD00F1780F /* NSString_Base64.h */; };
-		937269221B1F77DD00F1780F /* NSString_Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 937269201B1F77DD00F1780F /* NSString_Base64.m */; };
-		937269251B1F781000F1780F /* RegExCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 937269231B1F781000F1780F /* RegExCategories.h */; };
-		937269261B1F781000F1780F /* RegExCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 937269241B1F781000F1780F /* RegExCategories.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +35,7 @@
 		5A7859FB1443C54800C7C824 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5A7859FE1443C96D00C7C824 /* multimarkdown */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = multimarkdown; path = "MultiMarkdown QuickLook/multimarkdown"; sourceTree = "<group>"; };
 		5A785A091443CC1A00C7C824 /* opml2mmd.xslt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = opml2mmd.xslt; path = "MultiMarkdown QuickLook/opml2mmd.xslt"; sourceTree = "<group>"; };
-		9372691D1B1F77B400F1780F /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
-		9372691F1B1F77DD00F1780F /* NSString_Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_Base64.h; sourceTree = "<group>"; };
-		937269201B1F77DD00F1780F /* NSString_Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_Base64.m; sourceTree = "<group>"; };
-		937269231B1F781000F1780F /* RegExCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExCategories.h; sourceTree = "<group>"; };
-		937269241B1F781000F1780F /* RegExCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExCategories.m; sourceTree = "<group>"; };
+		A40FD7412F49FE2D000EBE87 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +76,7 @@
 		5A7859D01443BDBB00C7C824 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A40FD7412F49FE2D000EBE87 /* Cocoa.framework */,
 				5A7859D11443BDBB00C7C824 /* QuickLook.framework */,
 				5A7859D31443BDBB00C7C824 /* ApplicationServices.framework */,
 				5A7859D51443BDBB00C7C824 /* CoreServices.framework */,
@@ -96,11 +88,6 @@
 		5A7859D91443BDBB00C7C824 /* MultiMarkdown QuickLook */ = {
 			isa = PBXGroup;
 			children = (
-				937269231B1F781000F1780F /* RegExCategories.h */,
-				937269241B1F781000F1780F /* RegExCategories.m */,
-				9372691F1B1F77DD00F1780F /* NSString_Base64.h */,
-				937269201B1F77DD00F1780F /* NSString_Base64.m */,
-				9372691D1B1F77B400F1780F /* base64.c */,
 				5A7859F11443C1A000C7C824 /* GeneratePreviewForURL.m */,
 				5A7859F21443C1A000C7C824 /* GenerateThumbnailForURL.m */,
 				5A7859E41443BDBB00C7C824 /* main.c */,
@@ -135,8 +122,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937269251B1F781000F1780F /* RegExCategories.h in Headers */,
-				937269211B1F77DD00F1780F /* NSString_Base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,10 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7859E51443BDBB00C7C824 /* main.c in Sources */,
-				937269261B1F781000F1780F /* RegExCategories.m in Sources */,
 				5A7859F31443C1A000C7C824 /* GeneratePreviewForURL.m in Sources */,
-				9372691E1B1F77B400F1780F /* base64.c in Sources */,
-				937269221B1F77DD00F1780F /* NSString_Base64.m in Sources */,
 				5A7859F41443C1A000C7C824 /* GenerateThumbnailForURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
