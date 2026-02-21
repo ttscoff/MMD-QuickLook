@@ -65,7 +65,7 @@ NSData *processOPML2MMD(NSURL *url)
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:[path2MMD stringByExpandingTildeInPath]];
 
-    [task setArguments:[NSArray arrayWithObjects:nil]];
+    [task setArguments:[NSArray array]];
 
     NSPipe *writePipe = [NSPipe pipe];
     NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
@@ -110,7 +110,7 @@ NSData *processMMD(NSURL *url)
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:[path2MMD stringByExpandingTildeInPath]];
 
-    [task setArguments:[NSArray arrayWithObjects:nil]];
+    [task setArguments:[NSArray array]];
 
     NSPipe *writePipe = [NSPipe pipe];
     NSFileHandle *writeHandle = [writePipe fileHandleForWriting];
